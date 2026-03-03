@@ -1,21 +1,29 @@
 :root {
-    --background-color: #fff;
-    --text-color: #333;
-    --button-bg: #eee;
-    --button-text: #333;
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --button-bg: #6200ee;
+    --button-text: #ffffff;
+    --button-hover-bg: #3700b3;
+    --toggle-button-bg: #333;
+    --toggle-button-text: #fff;
 }
 
-[data-theme="dark"] {
-    --background-color: #333;
-    --text-color: #fff;
-    --button-bg: #555;
-    --button-text: #fff;
+[data-theme="light"] {
+    --background-color: #f5f5f5;
+    --text-color: #000000;
+    --card-bg: #ffffff;
+    --button-bg: #6200ee;
+    --button-text: #ffffff;
+    --button-hover-bg: #3700b3;
+    --toggle-button-bg: #eee;
+    --toggle-button-text: #000;
 }
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     transition: background-color 0.3s, color 0.3s;
     display: flex;
     flex-direction: column;
@@ -23,30 +31,52 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    position: relative;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-button {
-    background-color: var(--button-bg);
-    color: var(--button-text);
+#theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--toggle-button-bg);
+    color: var(--toggle-button-text);
     border: 1px solid var(--text-color);
+    border-radius: 20px;
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    z-index: 1000;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+#generate-btn {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#generate-btn:hover {
+    background-color: var(--button-hover-bg);
 }
