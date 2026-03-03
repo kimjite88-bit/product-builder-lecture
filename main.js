@@ -34,6 +34,7 @@ customElements.define("lotto-numbers", LottoNumbers);
 window.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("generate-btn");
   const lottoEl = document.querySelector("lotto-numbers");
+  const themeToggle = document.getElementById("theme-toggle");
 
   if (!btn) {
     console.error("Button with id='generate-btn' not found. Check index.html");
@@ -49,5 +50,14 @@ window.addEventListener("DOMContentLoaded", () => {
     while (set.size < 6) set.add(Math.floor(Math.random() * 45) + 1);
     const numbers = [...set].sort((a, b) => a - b);
     lottoEl.render(numbers);
+  });
+
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme === "dark") {
+        document.documentElement.removeAttribute("data-theme");
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
   });
 });
